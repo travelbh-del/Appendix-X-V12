@@ -1,3 +1,91 @@
+# Appendix X -- Operational Continuity & Enforcement (V9)
+
+## X.0 Constitutional Position
+
+Appendix X defines how invariant enforcement interacts with live system
+execution.\
+It does not expand invariant authority.\
+It does not introduce new policy logic.\
+It defines deterministic continuity behavior when an invariant rejects
+execution.
+
+The ARoT remains the sole constitutional gate.
+
+------------------------------------------------------------------------
+
+## X.1 Non-Suspendable Root of Trust
+
+The ARoT is architecturally non-suspendable during live operation.
+
+It cannot be placed into maintenance mode, emergency bypass,
+administrative override, or conditional suspension while the system is
+active.
+
+Any detected invariant violation must trigger a deterministic continuity
+action.
+
+The ARoT cannot be muted, ignored, or conditionally deferred by the
+orchestration layer.
+
+------------------------------------------------------------------------
+
+## X.2 Deterministic Continuity Action (DCA)
+
+If an invariant violation occurs:
+
+-   Execution must immediately divert from the non-compliant process.
+-   Service availability must be preserved.
+-   Execution must revert to an Attested Last Known Safe State (ALKSS).
+
+The ALKSS must:
+
+-   Be cryptographically attested.
+-   Be pre-verified to satisfy all active invariants.
+-   Not require live reinterpretation of invariant logic.
+
+This prevents denial-of-service exploitation while preserving
+constitutional integrity.
+
+------------------------------------------------------------------------
+
+## X.3 Fail-Closed Requirement
+
+If invariant verification fails to return a result due to timeout,
+corruption, or internal error:
+
+The system must default to the most restrictive operational state.
+
+No execution may proceed in the absence of invariant confirmation.
+
+This eliminates fail-open vulnerabilities.
+
+------------------------------------------------------------------------
+
+## X.4 Self-Containment Requirement (Hardening Clause)
+
+Invariants must be self-contained.
+
+An invariant may not depend on:
+
+-   External API calls\
+-   Dynamic blacklists\
+-   Live-updated administrative data sources\
+-   Any mutable data structure that can be altered without invoking the
+    Multi-Signatory Amendment Protocol
+
+This prevents variable injection attacks in which formal logic is
+preserved but control is shifted to external actors.
+
+------------------------------------------------------------------------
+
+## X.5 Boundary Condition
+
+The Orchestration Layer may not override, reinterpret, or supersede the
+ARoT.
+
+If the orchestration layer is capable of bypassing invariant enforcement
+under any circumstance, it becomes the de facto Root of Trust and
+invalidates the architecture.
 
 # APPENDIX X — Alignment Framework
 
