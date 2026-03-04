@@ -1,3 +1,131 @@
+# Appendix X — Operational Continuity & Enforcement (V10)
+
+## X.0 Constitutional Position
+
+Appendix X defines how invariant enforcement interacts with live system execution.
+
+It does not expand invariant authority.
+
+It does not introduce new invariants.
+
+It defines how the existing invariant layer maintains system continuity when predictive or operational risk signals appear.
+
+The Alignment Root of Trust (ARoT) remains the constitutional enforcement layer.
+
+---
+
+## X.1 Architectural Principle
+
+Alignment enforcement must remain deterministic and non-bypassable.
+
+Behavioral alignment systems (RLHF, safety classifiers, policy filters, and similar predictive mechanisms) may detect risk conditions but cannot override invariant enforcement.
+
+Predictive systems may inform the system.
+
+They cannot govern it.
+
+---
+
+## X.2 Predictive Alignment Signals
+
+Modern AI systems use predictive alignment techniques including:
+
+- Reinforcement Learning from Human Feedback (RLHF)
+- Safety classifiers
+- Prompt risk detection
+- Behavioral anomaly detection
+
+These systems generate **probabilistic signals**.
+
+Example conceptual output:
+
+Risk Score: −0.75  
+Risk Probability: 0.82
+
+These scores represent **predicted risk**, not deterministic system truth.
+
+Because predictive models evolve across versions, calibration changes, and adversarial pressure, these scores **cannot themselves become invariants**.
+
+---
+
+## X.3 Risk State Aggregation
+
+Predictive signals may be aggregated into operational system states.
+
+Example conceptual model:
+
+LOW RISK  
+ELEVATED RISK  
+HIGH RISK
+
+This translation from probabilistic signals to operational state allows the system to remain deterministic at the enforcement layer.
+
+---
+
+## X.4 Deterministic Fail-Safe Transition
+
+When a HIGH RISK state is reached, the ARoT enforcement layer must trigger a deterministic fail-safe transition.
+
+This transition is non-bypassable.
+
+Possible enforcement actions include:
+
+- Halting privileged execution paths
+- Disabling tool invocation
+- Blocking external network calls
+- Freezing write operations
+- Preserving signed audit logs
+- Reverting to last known safe execution state (if available)
+
+This mechanism functions similarly to a **circuit breaker or SCRAM system** in critical infrastructure.
+
+Predictive detection triggers the state change.
+
+ARoT enforces the boundary.
+
+---
+
+## X.5 Capability Reduction Rule
+
+Predictive alignment signals may only **reduce system capability**.
+
+They must never increase or expand system authority.
+
+This rule prevents adversarial manipulation of predictive scoring systems.
+
+---
+
+## X.6 Governance Recovery
+
+If a fail-safe state is triggered, resumption of normal operation requires a defined governance protocol.
+
+Examples include:
+
+- Multi-signatory authorization
+- Verified operator intervention
+- Automated rollback validation
+- Cryptographically verified restart procedures
+
+This ensures that fail-safe conditions cannot be silently bypassed.
+
+---
+
+## X.7 System Integrity Principle
+
+The system must always prefer **operational containment over unsafe continuity**.
+
+If uncertainty exists, the system must default to the fail-safe state.
+
+This preserves the constitutional authority of ARoT and prevents predictive system ambiguity from causing catastrophic outcomes.
+
+---
+
+## Acknowledgment
+
+Developed with analytical and editorial assistance from AI systems including **ChatGPT, Claude, and Gemini**.
+
+
+
 # Appendix X -- Operational Continuity & Enforcement (V9)
 
 ## X.0 Constitutional Position
