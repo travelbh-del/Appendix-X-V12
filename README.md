@@ -1,3 +1,85 @@
+Appendix X — Alignment Root of Trust (ARoT) Governance Framework
+Version 12.2
+
+Architecture Overview
+
+Governance Layer (Human Authority)
+        │
+        ▼
+Measurement Layer (Contract Monitoring)
+        │
+        ▼
+Enforcement Layer (Alignment Root of Trust)
+        │
+        ▼
+Operational AI System
+        │
+        ▼
+Return to Last Known Safe State
+
+Purpose
+Appendix X establishes a governance architecture for AI systems operating under contractual or institutional authority. The framework links technical enforcement mechanisms with human governance oversight to ensure that AI systems remain aligned with agreed operational boundaries over time.
+Unlike static legal agreements, this architecture enables structurally responsive governance capable of detecting behavioral drift and initiating corrective governance actions without interrupting operational continuity wherever possible.
+The framework ensures that AI systems cannot continue operating in a state where contractual, governance, or safety alignment has materially diverged from the conditions under which the system was authorized to operate.
+Core Principle
+Governance decides.
+Measurement detects.
+ARoT enforces.
+This separation ensures that human authorities retain decision-making responsibility while automated systems provide continuous monitoring and technical enforcement.
+Governance Cascade
+Human Governance Authority
+↓
+Contract Monitoring & Measurement
+↓
+Alignment Root of Trust (ARoT)
+↓
+Operational AI System
+Each layer has a distinct responsibility.
+Governance Layer – Human stakeholders retain authority over policy decisions and contractual boundaries.
+Measurement Layer – Monitoring systems measure system behavior relative to contractual constraints.
+Enforcement Layer – The Alignment Root of Trust executes enforcement actions when defined thresholds are exceeded.
+Measurement and Monitoring
+Continuous monitoring ensures that deviations from contractual expectations are detected early and transparently.
+Illustrative Measurement Vectors
+Semantic Drift – deviation from defined behavioral or persona boundaries.
+Boundary Volatility – frequency of near‑threshold events indicating pressure on operational constraints.
+Policy Compliance Score – percentage of outputs meeting defined contractual safety requirements.
+Drift Detection and Governance Review
+When monitoring systems detect statistically significant divergence from the established operational baseline, the system enters a governance review state.
+Human stakeholders evaluate whether:
+• the change is acceptable and a new baseline should be established
+• operational constraints should be modified
+• corrective measures should be applied
+This allows governance intervention while maintaining safe system operation.
+Human‑Governed Renegotiation
+AI system evolution may result from model updates, changes in input distributions, optimization effects, or environmental changes.
+When such changes materially affect contractual expectations, the system must enter a renegotiation window in which governance authorities review and update the governing contract if appropriate.
+Failover to Last Known Safe State
+If drift cannot be resolved during the governance review window, the system must revert to the Last Known Safe State.
+Where implemented, this state may be stored as a cryptographically verifiable Safety Anchor consisting of:
+• validated model parameters
+• the associated governance contract hash
+• validation telemetry confirming compliance with defined thresholds.
+Reversion ensures that AI systems cannot continue operating outside the scope of the last mutually validated governance conditions.
+Governance Floor Principle
+The Alignment Root of Trust establishes a non‑bypassable governance floor invariant for AI operation.
+If measurement systems detect that contractual or operational boundaries have been exceeded and human renegotiation does not resolve the divergence within the defined review window, the system must automatically revert to the last known safe state or enter controlled halt.
+Operational continuity is preserved whenever possible, but system behavior may never fall below the last mutually validated governance baseline.
+Operational Continuity
+The framework prioritizes continuity of legitimate operations while ensuring safety.
+Governance review and renegotiation occur while the system remains operational whenever possible. Enforcement mechanisms activate only when governance resolution fails or when critical thresholds indicate unacceptable risk.
+Auditability and Transparency
+Measurement systems maintain tamper‑resistant logs documenting drift signals, threshold crossings, governance review events, and enforcement actions to enable independent audit and verification.
+Architectural Neutrality
+Appendix X is technology‑agnostic. It does not prescribe specific model architectures or deployment environments, allowing the framework to remain applicable as AI technologies evolve.
+Attribution
+This document was developed through iterative dialogue with AI research systems including ChatGPT, Claude, and Gemini.
+
+
+
+
+
+
 # Appendix X --- Version 12
 
 ## Contract‑Coupled Governance (CCG)
