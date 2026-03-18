@@ -86,7 +86,12 @@ Alignment SHALL be maintained not only through outcome validation, but through c
 
 
 **Control Actions:**
+Control Actions:
 
+• Response Weighting:   ← ADD HERE
+• Review State:
+• Damping Response:
+• Failover:
 - **Review State:**  
   Initiated upon detection of elevated variance, curvature, or prompt sensitivity.  
   System enters bounded evaluation mode without interrupting operational continuity.
