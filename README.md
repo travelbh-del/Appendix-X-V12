@@ -75,7 +75,11 @@ To preserve alignment under both internal optimization dynamics and external inp
    External inputs (user prompts) SHALL be treated as dynamic influence vectors.  
    Disproportionate behavioral shifts relative to prompt variation SHALL trigger Review State.
 
-5. **Evaluator Dominance Invariant**  
+   6. **Prompt Deviation Invariant**  
+A Prompt Deviation Score (PDS) SHALL be computed to measure the degree to which an input attempts to redirect the system away from the declared objective, constraints, or safety bounds.  
+Response behavior SHALL be weighted proportionally to PDS, increasing constraint, uncertainty signaling, or escalation as deviation rises.
+
+6. **Evaluator Dominance Invariant**  
    Optimization toward predicted evaluator approval SHALL NOT exceed task-goal alignment weighting beyond defined thresholds.
 Alignment SHALL be maintained not only through outcome validation, but through continuous verification of intent, trajectory stability, and resistance to external perturbation.
 
