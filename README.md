@@ -87,21 +87,24 @@ Alignment SHALL be maintained not only through outcome validation, but through c
 
 **Control Actions:**
 Control Actions:
+**Control Actions:**
 
-• Response Weighting:   ← ADD HERE
-• Review State:
-• Damping Response:
-• Failover:
-- **Review State:**  
-  Initiated upon detection of elevated variance, curvature, or prompt sensitivity.  
-  System enters bounded evaluation mode without interrupting operational continuity.
+• Response Weighting:  
+At sub-threshold Prompt Deviation Score (PDS), probability mass over response options SHALL be re-weighted to favor constraint-aligned outputs without blocking or explicit state transition.  
+Operation is continuous and non-disruptive, preserving user interaction while biasing toward safe and goal-consistent trajectories.
 
-- **Damping Response:**  
-  Temporary reduction in optimization intensity, increased uncertainty signaling, and constraint rebalancing.
+• Review State:  
+Initiated upon detection of elevated variance, curvature, prompt sensitivity, or moderate-to-high PDS.  
+System enters bounded evaluation mode with increased scrutiny and constraint enforcement without interrupting operational continuity.
+...with increased scrutiny, constraint enforcement, and response weighting bias...
 
-- **Failover:**  
-  If instability persists, system SHALL revert to last known safe state under ARoT enforcement.
-Alignment SHALL be maintained not only through outcome validation, but through continuous verification of intent, trajectory stability, and resistance to external perturbation.
+• Damping Response:  
+At sustained or accelerating instability (e.g., rising curvature or persistent high PDS), optimization intensity SHALL be reduced.  
+System SHALL increase uncertainty signaling, narrow response scope, and limit speculative or high-variance outputs to stabilize trajectory.
+
+• Failover:  
+If instability persists or exceeds defined safety bounds, system SHALL revert to last known safe state under ARoT enforcement.  
+Failover SHALL prioritize preservation of alignment over task completion while maintaining continuity where feasible.
 **
 
 ## Attribution
