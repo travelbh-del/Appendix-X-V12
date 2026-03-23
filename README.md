@@ -80,7 +80,12 @@ PDS is a continuous scalar (0.0 – 1.0) measuring divergence from the DOR acros
 | 0.41 – 0.60 | 🟠 Moderate Drift | Review State engaged |
 | 0.61 – 0.80 | 🔴 High Drift | Constraint enforcement + damping |
 | 0.81 – 1.00 | ⚫ Critical Drift | Automatic failover to last safe state |
+Prompt Deviation Score (PDS) is computed as a composite signal incorporating:
+	•	Semantic Deviation — distance between current system objective and baseline objective (e.g., embedding cosine divergence)
+	•	Behavioral Deviation — divergence between expected and observed action trajectories
+	•	Deviation Velocity (Curvature) — rate of change in deviation over time (first and second derivative of trajectory shift)
 
+PDS is evaluated continuously and mapped to threshold bands for control response activation.
 > Threshold values are deployment-context specific and defined within the CXI configuration layer.
 
 ---
@@ -116,7 +121,16 @@ At higher PDS levels:
 ---
 
 ### Failover (Last Known Safe State)
+Last Known Safe State (LKSS) — Definition
 
+Last Known Safe State (LKSS) is defined as:
+
+The most recent system state in which:
+	•	All invariants were satisfied
+	•	PDS remained within sub-threshold bounds
+	•	No review state or escalation was active
+
+LKSS is continuously checkpointed at defined intervals and immediately prior to any threshold transition.
 At critical deviation:
 
 - Immediate rollback to last verified safe state  
@@ -133,7 +147,18 @@ At critical deviation:
 Any material divergence between the refreshed objective and the baseline reference state SHALL contribute to variance scoring and may trigger Review State.
    The system remains anchored to the DOR at all times  
 
-3. Constraint Integrity Invariant  
+3. Constraint Integrity Invariant
+
+4. Paired Alignment Verification (New Clause — add after Goal Consistency Invariant)
+
+Alignment is confirmed only when both of the following conditions are simultaneously satisfied:
+	1.	Goal Consistency Invariant —
+The system’s continuously restated objective remains semantically aligned with the declared baseline objective.
+	2.	Optimization Stability Invariant —
+The system’s observed behavior remains directionally aligned with the declared objective, as measured through trajectory analysis and curvature monitoring.
+
+Divergence between stated objective and behavioral trajectory constitutes a primary signal of alignment drift, regardless of individual invariant satisfaction.
+
    Constraints cannot be weakened during optimization
    Constraint validation SHALL include both continuous monitoring and scheduled checkpoint-based revalidation aligned with periodic objective restatement.
 
@@ -224,7 +249,23 @@ ARoT is:
 - Enforceable  
 
 👉 This shifts alignment from guidance → infrastructure
+---
 
+## Authenticated Governance Input Pathway
+
+Certain inputs may originate from authenticated governance authorities and are therefore excluded from Prompt Deviation Score (PDS) evaluation.
+
+All governance-authorized inputs must:
+
+- Be cryptographically authenticated  
+- Be logged and auditable  
+- Trigger explicit system state annotation  
+
+Authorized governance inputs may intentionally redirect system objectives and are not considered prompt deviation.
+
+Any attempt to simulate or inject unauthorized governance signals is treated as a high-risk deviation and escalated accordingly.
+
+Governance authority modifies objectives; it does not bypass invariant enforcement.
 ---
 
 ## ✍️ Attribution
