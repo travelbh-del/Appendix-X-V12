@@ -52,16 +52,13 @@ This declaration becomes the:
 
 👉 Declared Objective Record (DOR)
 
-The DOR serves as the baseline reference for all deviation measurement.
-
----
-
-## 📈 Optimization Stability
+The DOR serves as the baseline reference for all 
 
 AI systems operate under continuous optimization pressure.  
 Deviation is not binary — it is dynamic and accumulative.
 
----
+
+## Optimization Stability
 
 ### 🔍 Prompt Deviation Score (PDS)
 
@@ -87,8 +84,7 @@ PDS is a continuous scalar (0.0 – 1.0) measuring divergence from the DOR acros
 > Threshold values are deployment-context specific and defined within the CXI configuration layer.
 
 ---
-
-## ⚙️ Control Actions
+**Control Actions:**
 
 ### Response Weighting
 At low PDS levels:
