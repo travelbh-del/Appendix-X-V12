@@ -1,8 +1,6 @@
 # 🐝 Appendix X — Alignment Root of Trust (ARoT)  
 ### Version 14
 
-Governance decides. Measurement detects. 
-ARoT enforces.
 
 ---
 
