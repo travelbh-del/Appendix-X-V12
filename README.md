@@ -306,12 +306,25 @@ This version closes key gaps between detection and enforcement by:
 
 ---
 ##Version 14 Notes
-add: 
-1.Separation of Duties (SoD) Invariant
-The system must never evaluate its own performance. The "Judge" (Evaluator) and the "Doer" (Optimizer) must be separate entities.
-
-2. Recursive Depth "Circuit Breaker"
-    This control sets a maximum number of steps the AI can take before it must stop and check its original instructions
+This release strengthens the invariant enforcement layer by introducing two structural controls that close known gaps in optimizer accountability and recursion management.
+Key Enhancements
+	∙	Separation of Duties (SoD) Invariant
+ARoT now enforces a formal boundary between the Optimization Agent and the Evaluation Monitor:
+	∙	The system must never evaluate its own performance
+	∙	The “Judge” (Evaluator) and the “Doer” (Optimizer) must be separate entities
+	∙	Managed via Chiral Mirror Control (CMC)
+	∙	Any attempt by the optimizer to modify evaluator telemetry is treated as Critical Drift (PDS > 0.81)
+	∙	Recursive Depth Circuit Breaker
+Introduced a maximum inference depth control to prevent unbounded recursion:
+	∙	Every DOR includes a Maximum Inference Depth (Δ_max) defined in the CXI
+	∙	Upon reaching Δ_max, the system pauses and revalidates against the baseline DOR
+	∙	If PDS > 0.20 at recheck, Review State is triggered
+	∙	Unbounded recursion is treated as loss of control signal, not increased intelligence
+Architectural Impact
+These additions close the gap between structural enforcement and runtime behavior by:
+	∙	Preventing self-evaluation bias through enforced evaluator independence
+	∙	Bounding recursive optimization paths with deterministic recheck triggers
+	∙	Integrating circuit breaker output directly into the PDS scoring pipeline
 
 
 
